@@ -7,21 +7,20 @@
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-figwheel "0.5.2"]]
 
-  :clean-targets ^{:protect false} ["resources/public/js/main.js"
-                                    "resources/public/js/out"]
+  :clean-targets ^{:protect false} ["resources/public/js/compiled"]
   
   :cljsbuild {
               :builds [{ :id "dev"
                          :source-paths ["src"]
                          :figwheel true
                          :compiler {:main "cljs-project.core"
-                                    :output-to "resources/public/js/main.js"
-                                    :output-dir "resources/public/js/out"
-                                    :asset-path "js/out"
+                                    :output-to "resources/public/js/compiled/main.js"
+                                    :output-dir "resources/public/js/compiled/out"
+                                    :asset-path "js/compiled/out"
                                     :optimizations :none
                                     :source-map true}}
                        { :id "prod"
                          :source-paths ["src"]
                          :compiler {:main "cljs-project.core"
-                                    :output-to "resources/public/js/main.js"
+                                    :output-to "resources/public/js/compiled/main.js"
                                     :optimizations :advanced}}]})
