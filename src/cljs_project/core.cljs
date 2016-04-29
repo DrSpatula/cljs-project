@@ -1,3 +1,7 @@
-(ns cljs-project.core)
+(ns cljs-project.core
+  (:require [reagent.core :as r]))
 
-(.log js/console "I seem to be working.")
+(defn hello []
+  [:p "This seems to be working."])
+
+(r/render [hello] (.getElementById js/document "app"))
